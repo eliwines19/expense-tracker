@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 
 import './index.css'
 import App from './App';
+import { GlobalStyle } from './styles/GlobalStyle';
 
 ReactDOM.render(
-    <div>
+    <React.StrictMode>
+        <GlobalStyle />
         <App />
-    </div>,
+    </React.StrictMode>,
     document.getElementById('root')
 );
