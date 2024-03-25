@@ -8,7 +8,7 @@ import { plus } from '../../utils/icons'
 
 const Form = () => {
 
-  const {addIncome, getIncomes} = useGlobalContext()
+  const { addIncome } = useGlobalContext()
 
   const [inputState, setInputState] = useState({
     title: '',
@@ -27,14 +27,13 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault()
     addIncome(inputState)
-    getIncomes()
-    // setInputState({
-    //   title: '',
-    //   amount: '',
-    //   date: '',
-    //   category: '',
-    //   description: ''
-    // })
+    setInputState({
+      title: '',
+      amount: '',
+      date: '',
+      category: '',
+      description: ''
+    })
   }
 
   return (
@@ -44,7 +43,7 @@ const Form = () => {
             type="text"
             value={title}
             name={'title'}
-            placeholder='Salary'
+            placeholder='What is this for?'
             onChange={handleInput('title')}
           />
         </div>
@@ -85,7 +84,7 @@ const Form = () => {
           <textarea
             name="description"
             value={description}
-            placeholder="Add A Reference"
+            placeholder="Description"
             id="description"
             cols='30'
             rows='4'
