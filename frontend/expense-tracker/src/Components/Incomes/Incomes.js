@@ -7,11 +7,11 @@ import Income from './Income'
 
 const Incomes = () => {
 
-  const { addIncome, incomes, getIncomes } = useGlobalContext()
+  const { addIncome, incomes, getIncomes, deleteIncome } = useGlobalContext()
 
   useEffect(() => {
     getIncomes()
-  }, [incomes])
+  }, [])
 
   return (
     <IncomeStyled>
@@ -22,18 +22,19 @@ const Incomes = () => {
             <Form />
           </div>
           <div className='incomes'>
-            {incomes.map((income, index) => {
-              const { id, title, amount, date, category, description } = income;
+            {incomes.map((income) => {
+              const { _id, title, amount, date, category, description } = income;
               return(
                 <Income
-                  key={id}
-                  id={id}
+                  key={_id}
+                  id={_id}
                   title={title}
                   description={description}
                   amount={amount}
                   date={date}
                   category={category}
                   indicatorColor='var(--color-green)'
+                  deleteItem={deleteIncome}
                 />
               )
             })}

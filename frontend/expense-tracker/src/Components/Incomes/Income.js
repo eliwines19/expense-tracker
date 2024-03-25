@@ -3,11 +3,7 @@ import styled from 'styled-components'
 import { dollar, calendar, comment, trash, money, freelance, stocks, bitcoin, users, card, yt, piggy, book, food, medical, tv, takeaway, clothing, circle } from '../../utils/icons'
 import Button from '../Button/Button'
 
-const Income = ({id, title, amount, date, category, description,deleteItem, indicatorColor, type }) => {
-  
-    const handleDelete = () => {
-        console.log('deleted income')
-    }
+const Income = ({id, title, amount, date, category, description, deleteItem, indicatorColor, type }) => {
 
     const categoryIcon = () => {
         switch(category){
@@ -64,7 +60,7 @@ const Income = ({id, title, amount, date, category, description,deleteItem, indi
                 <h5>{title}</h5>
                 <div className='inner-content'>
                     <div className='text'>
-                        <p>{dollar} 45</p>
+                        <p>{dollar} {amount}</p>
                         <p>{calendar} {date}</p>
                         <p>
                             {comment}
@@ -80,7 +76,7 @@ const Income = ({id, title, amount, date, category, description,deleteItem, indi
                             color={'#fff'}
                             iColor={'#fff'}
                             hColor={'var(--color-green)'}
-                            onClick={() => handleDelete(id)}
+                            onClick={() => deleteItem(id)}
                         />
                     </div>
                 </div>
