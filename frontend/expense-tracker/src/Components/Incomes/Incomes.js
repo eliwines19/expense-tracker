@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { InnerLayout } from '../../styles/layouts'
 import { useGlobalContext } from '../../Context/globalContext'
-import Form from '../Form/Form'
+import IncomeForm from '../Forms/IncomeForm'
 import Income from './Income'
 
 const Incomes = () => {
@@ -20,7 +20,7 @@ const Incomes = () => {
         <h2 className='total-income'>Total Income: <span>${totalIncome()}</span></h2>
         <div className='income-content'>
           <div className='form-container'>
-            <Form />
+            <IncomeForm />
           </div>
           <div className='incomes'>
             {incomes.map((income) => {
