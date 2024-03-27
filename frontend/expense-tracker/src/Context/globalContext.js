@@ -73,6 +73,10 @@ export const GlobalProvider = ({children}) => {
     }
     // expense methods
 
+    const totalBalance = () => {
+        return totalIncome() - totalExpenses()
+    }
+
     return (
         <GlobalContext.Provider value={{
             addIncome,
@@ -85,6 +89,7 @@ export const GlobalProvider = ({children}) => {
             deleteExpense,
             totalExpenses,
             expenses,
+            totalBalance,
             error,
             setError
         }}>
