@@ -24,21 +24,21 @@ const Dashboard = () => {
                   <Chart />
                   <div className='amount-con'>
                     <div className='income'>
-                      <h2>Total Income</h2>
+                      <h2>Income</h2>
                       <p>
-                        {dollar} {totalIncome()}
+                        {dollar}{totalIncome()}
                       </p>
                     </div>
                     <div className='expense'>
-                      <h2>Total Expenses</h2>
+                      <h2>Expenses</h2>
                       <p>
-                        {dollar} {totalExpenses()}
+                        {dollar}{totalExpenses()}
                       </p>
                     </div>
                     <div className='balance'>
                       <h2>Balance</h2>
-                      <p>
-                        {dollar} {totalBalance()}
+                      <p style={{ color: totalBalance() > 0 ? 'var(--color-green)' : '#FF0000' }}>
+                        {dollar}{totalBalance()}
                       </p>
                     </div>
                   </div>
@@ -71,13 +71,16 @@ const Dashboard = () => {
   }
 
 const DashboardStyled = styled.div`
+  h1{
+    text-align: center;
+  }
   .stats-con{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     .chart-con{
       grid-column: 1 / 4;
-      height: 400px;
+      height: 40%;
       .amount-con{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -87,14 +90,26 @@ const DashboardStyled = styled.div`
           grid-column: span 2;
         }
         .income, .expense, .balance{
+          text-align: center;
           background: #FCF6F9;
           border: 2px solid #FFFFFF;
           box-shadow: 0px 1px 15px rgba(0,0,0,0.06);
           border-radius: 20px;
           padding: 1rem;
+          font-size: 2;
           p{
-            font-size: 3.5rem;
+            font-size: 2vw;
             font-weight: 700;
+          }
+        }
+        .income{
+          p{
+            color: var(--color-green);
+          }
+        }
+        .expense{
+          p{
+            color: #FF0000;
           }
         }
         .balance{
@@ -103,40 +118,36 @@ const DashboardStyled = styled.div`
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          p{
-            color: var(--color-green);
-            opacity: 0.6;
-            font-size: 4.5rem;
-          }
         }
       }
     }
     .history-con{
       grid-column: 4 / -1;
       h2{
-        margin: 1rem 0;
+        font-size: 2vw;
+        margin: 2vw 0 0 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
       .salary-title{
-        font-size: 1.2rem;
+        font-size: 1vw;
         span{
-          font-size: 1.8rem;
+          font-size: 2vw;
         }
       }
       .salary-item{
         background: #FCF6F9;
         border: 2px solid #FFFFFF;
         box-shadow: 0px 1px 15px rgba(0,0,0,0.06);
-        padding: 1rem;
+        padding: 0.8vw;
         border-radius: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         p{
           font-weight: 600;
-          font-size: 1.6rem;
+          font-size: 1.6vw;
         }
       }
     }

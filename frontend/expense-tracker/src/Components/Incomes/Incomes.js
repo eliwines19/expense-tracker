@@ -47,6 +47,9 @@ const Incomes = () => {
 }
 
 const IncomeStyled = styled.div`
+  h1{
+    text-align: center;
+  }
   display: flex;
   overflow: auto;
   .total-income{

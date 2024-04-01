@@ -48,6 +48,9 @@ const Expenses = () => {
 }
 
 const ExpensesStyled = styled.div`
+  h1{
+    text-align: center;
+  }
   display: flex;
   overflow: auto;
   .total-expenses{
