@@ -7,7 +7,6 @@ import Dashboard from './Components/Dashboard/Dashboard.js';
 import Expenses from './Components/Expenses/Expenses.js'
 import Incomes from './Components/Incomes/Incomes.js'
 import { useMemo, useState } from 'react';
-import { useGlobalContext } from './Context/globalContext.js';
 
 const App = () => {
 
@@ -15,8 +14,6 @@ const App = () => {
     const orbMemo = useMemo(() => {
         return <Orb />
     },[])
-
-    const global = useGlobalContext()
 
     const displayData = () => {
         switch(active){
