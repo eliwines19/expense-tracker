@@ -14,6 +14,7 @@ import {Line} from 'react-chartjs-2'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../Context/globalContext'
 import { dateFormat } from '../../utils/dateFormat'
+import { dollar } from '../../utils/icons'
 
 ChartJs.register(
     CategoryScale,
@@ -28,6 +29,15 @@ ChartJs.register(
 
 function Chart() {
     const {incomes, expenses} = useGlobalContext()
+
+    const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: "Transaction History"
+            }
+        }
+    }
 
     const data = {
         labels: incomes.map((inc) =>{
@@ -63,7 +73,7 @@ function Chart() {
 
     return (
         <ChartStyled >
-            <Line data={data} />
+            <Line options={options} data={data} />
         </ChartStyled>
     )
 }

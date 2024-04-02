@@ -15,7 +15,7 @@ const App = () => {
         return <Orb />
     },[])
 
-    const displayData = () => {
+    const displayComponents = () => {
         switch(active){
             case 1:
                 return <Dashboard />
@@ -36,7 +36,7 @@ const App = () => {
             <MainLayout>
                 <Navigation active={active} setActive={setActive} />
                 <main>
-                    {displayData()}
+                    {displayComponents()}
                 </main>
             </MainLayout>
         </AppStyled>

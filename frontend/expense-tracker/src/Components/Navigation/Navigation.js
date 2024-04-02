@@ -7,7 +7,9 @@ import { signout } from '../../utils/icons.js'
 const Navigation = ({ active, setActive }) => {
 
   return (
-    <NavStyled>
+    <NavStyled
+        style={{ display: '' }}
+    >
         <div className='user-con'>
             <img src={avatar} alt=""/>
             <div className='text'>
@@ -40,7 +42,7 @@ const Navigation = ({ active, setActive }) => {
 
 const NavStyled = styled.nav`
     padding: 2rem 1.5rem;
-    width: 375px;
+    width: 20vw;
     height: 100%;
     background: rgba(252, 246, 249, 0.78);
     border: 3px solid #FFFFFF;
@@ -102,6 +104,9 @@ const NavStyled = styled.nav`
         span{
             text-decoration: underline;
         }
+    }
+    @media (max-width: 600px) {
+        
     }
 `
 
