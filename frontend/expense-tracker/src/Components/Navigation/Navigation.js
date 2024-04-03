@@ -3,12 +3,15 @@ import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
 import { menuItems } from '../../utils/menuItems.js'
 import { signout } from '../../utils/icons.js'
+import { useGlobalContext } from '../../Context/globalContext.js'
 
 const Navigation = ({ active, setActive }) => {
 
+    const { activeMenu, setActiveMenu } = useGlobalContext()
+
   return (
     <NavStyled
-        style={{ display: '' }}
+        style={{ display: activeMenu === true ? '' : 'none' }}
     >
         <div className='user-con'>
             <img src={avatar} alt=""/>
@@ -106,7 +109,7 @@ const NavStyled = styled.nav`
         }
     }
     @media (max-width: 1000px) {
-        display: none;
+        // display: none;
     }
 `
 

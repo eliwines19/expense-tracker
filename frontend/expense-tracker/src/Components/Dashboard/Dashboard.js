@@ -5,10 +5,12 @@ import { useGlobalContext } from '../../Context/globalContext'
 import Chart from '../Chart/Chart'
 import History from '../History/History'
 import { dollar, menu } from '../../utils/icons'
+import { useWindowSize } from '../../utils/useWindowSize'
 
 const Dashboard = () => {
 
-    const { getIncomes, getExpenses, totalExpenses, totalIncome, totalBalance, incomes, expenses } = useGlobalContext()
+    const { getIncomes, getExpenses, totalExpenses, totalIncome, totalBalance, incomes, expenses, activeMenu, setActiveMenu } = useGlobalContext()
+    const { width, height } = useWindowSize()
 
     useEffect(() => {
       getExpenses()
@@ -19,7 +21,12 @@ const Dashboard = () => {
       <DashboardStyled>
           <InnerLayout>
               <div className='header-con'>
-                <span className='nav-menu-btn'>
+                <span
+                  className='nav-menu-btn'
+                  onClick={() => {
+                    setActiveMenu(true)
+                  }}
+                >
                   {menu}
                 </span>
                 <h1>All Transactions</h1>
@@ -82,12 +89,14 @@ const DashboardStyled = styled.div`
   .nav-menu-btn{
     width: 3vw;
     i{
-      font-size: 3vw;
+      font-size: 25px;
       padding: 1vw;
       border-radius: 40%;
       text-align: center;
+      transition: 0.2s ease-in-out;
     }
     i:hover{
+      font-size: 28px;
       background-color: #F3C6CA;
       cursor: pointer;
     }

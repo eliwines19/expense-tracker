@@ -7,6 +7,7 @@ const GlobalContext = React.createContext()
 
 export const GlobalProvider = ({children}) => {
 
+    const [activeMenu, setActiveMenu] = useState(false)
     const [incomes, setIncomes] = useState([])
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
@@ -99,6 +100,8 @@ export const GlobalProvider = ({children}) => {
             expenses,
             totalBalance,
             transactionHistory,
+            activeMenu,
+            setActiveMenu,
             error,
             setError
         }}>
