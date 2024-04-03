@@ -4,7 +4,7 @@ import { InnerLayout } from '../../styles/layouts'
 import { useGlobalContext } from '../../Context/globalContext'
 import Chart from '../Chart/Chart'
 import History from '../History/History'
-import { dollar } from '../../utils/icons'
+import { dollar, menu } from '../../utils/icons'
 
 const Dashboard = () => {
 
@@ -18,7 +18,12 @@ const Dashboard = () => {
     return (
       <DashboardStyled>
           <InnerLayout>
-              <h1>All Transactions</h1>
+              <div className='header-con'>
+                <span className='nav-menu-btn'>
+                  {menu}
+                </span>
+                <h1>All Transactions</h1>
+              </div>
               <div className='stats-con'>
                 <div className='chart-con'>
                   <Chart />
@@ -73,6 +78,19 @@ const Dashboard = () => {
 const DashboardStyled = styled.div`
   h1{
     text-align: center;
+  }
+  .nav-menu-btn{
+    width: 3vw;
+    i{
+      font-size: 3vw;
+      padding: 1vw;
+      border-radius: 40%;
+      text-align: center;
+    }
+    i:hover{
+      background-color: #F3C6CA;
+      cursor: pointer;
+    }
   }
   .stats-con{
     display: grid;

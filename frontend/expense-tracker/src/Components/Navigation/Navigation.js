@@ -105,8 +105,8 @@ const NavStyled = styled.nav`
             text-decoration: underline;
         }
     }
-    @media (max-width: 600px) {
-        
+    @media (max-width: 1000px) {
+        display: none;
     }
 `
 
