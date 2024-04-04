@@ -4,6 +4,7 @@ import { useGlobalContext } from '../../Context/globalContext'
 import { InnerLayout } from '../../styles/layouts'
 import ExpenseForm from '../Forms/ExpenseForm'
 import Income from '../Incomes/Income'
+import MenuIcon from '../../utils/MenuIcon'
 
 const Expenses = () => {
 
@@ -16,6 +17,7 @@ const Expenses = () => {
   return (
     <ExpensesStyled>
       <InnerLayout>
+        <MenuIcon />
         <h1>Expenses</h1>
         <h2 className='total-expenses'>Total Expenses: <span>${totalExpenses()}</span></h2>
         <div className='expense-content'>

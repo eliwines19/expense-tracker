@@ -4,13 +4,12 @@ import { InnerLayout } from '../../styles/layouts'
 import { useGlobalContext } from '../../Context/globalContext'
 import Chart from '../Chart/Chart'
 import History from '../History/History'
-import { dollar, menu } from '../../utils/icons'
-import { useWindowSize } from '../../utils/useWindowSize'
+import { dollar } from '../../utils/icons'
+import MenuIcon from '../../utils/MenuIcon'
 
 const Dashboard = () => {
 
     const { getIncomes, getExpenses, totalExpenses, totalIncome, totalBalance, incomes, expenses, activeMenu, setActiveMenu } = useGlobalContext()
-    const { width, height } = useWindowSize()
 
     useEffect(() => {
       getExpenses()
@@ -21,14 +20,7 @@ const Dashboard = () => {
       <DashboardStyled>
           <InnerLayout>
               <div className='header-con'>
-                <span
-                  className='nav-menu-btn'
-                  onClick={() => {
-                    setActiveMenu(true)
-                  }}
-                >
-                  {menu}
-                </span>
+                <MenuIcon />
                 <h1>All Transactions</h1>
               </div>
               <div className='stats-con'>

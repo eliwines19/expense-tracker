@@ -2,59 +2,69 @@ import React from 'react'
 import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
 import { menuItems } from '../../utils/menuItems.js'
-import { signout } from '../../utils/icons.js'
+import { exit } from '../../utils/icons.js'
 import { useGlobalContext } from '../../Context/globalContext.js'
 
 const Navigation = ({ active, setActive }) => {
 
     const { activeMenu, setActiveMenu } = useGlobalContext()
 
+    const handleClick = () => {
+        setActiveMenu(!activeMenu)
+    }
+
   return (
-    <NavStyled
-        style={{ display: activeMenu === true ? '' : 'none' }}
-    >
-        <div className='user-con'>
-            <img src={avatar} alt=""/>
-            <div className='text'>
-                <h2>Mike</h2>
-                <p>Your Money</p>
+    <NavStyled>
+        <div className={`${activeMenu ? 'nav-con' : 'inactive'}`}>
+            <div className='close-menu' onClick={handleClick}>
+                {exit}
             </div>
-        </div>
-        <ul className='menu-items'>
-            {menuItems.map((item) => {
-                return (
-                    <li
-                        key={item.id}
-                        onClick={() => setActive(item.id)}
-                        className={active === item.id ? 'active' : ''}
-                    >
-                        {item.icon}
-                        <span>{item.title}</span>
-                    </li>
-                )
-            })}
-        </ul>
-        <div className='bottom-nav'>
-            <li>
-                {signout} Sign Out
-            </li>
+            <div className='user-con'>
+                <img src={avatar} alt=""/>
+                <div className='text'>
+                    <h2>Mike</h2>
+                    <p>Your Money</p>
+                </div>
+            </div>
+            <ul className='menu-items'>
+                {menuItems.map((item) => {
+                    return (
+                        <li
+                            key={item.id}
+                            onClick={() => setActive(item.id)}
+                            className={active === item.id ? 'active' : ''}
+                        >
+                            {item.icon}
+                            <span>{item.title}</span>
+                        </li>
+                    )
+                })}
+            </ul>
         </div>
     </NavStyled>
   )
 }
 
 const NavStyled = styled.nav`
-    padding: 2rem 1.5rem;
-    width: 20vw;
-    height: 100%;
-    background: rgba(252, 246, 249, 0.78);
-    border: 3px solid #FFFFFF;
-    backdrop-filter: blur(4.5px);
-    border-radius: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2rem;
+    .inactive{
+        display: none;
+    }
+    .nav-con{
+        z-index: 10;
+        position: absolute;
+        box-shadow: 0 0 0 2000px rgba(0,0,0,0.3);
+        padding: 2rem 1.5rem;
+        width: 30vw;
+        height: auto;
+        background: rgba(252, 246, 249, 0.78);
+        border: 3px solid #FFFFFF;
+        backdrop-filter: blur(4.5px);
+        border-radius: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+    }
     .user-con{
         height: 100px;
         display: flex;
@@ -75,6 +85,23 @@ const NavStyled = styled.nav`
         }
         p{
             color: rgba(34, 34, 96, 0.6)
+        }
+    }
+    .close-menu{
+        left: 23vw;
+        width: 3vw;
+        position: absolute;
+        i{
+          font-size: 25px;
+          padding: 1vw;
+          border-radius: 40%;
+          text-align: center;
+          transition: 0.2s ease-in-out;
+        }
+        i:hover{
+          font-size: 28px;
+          background-color: #F3C6CA;
+          cursor: pointer;
         }
     }
     .menu-items{
@@ -107,9 +134,6 @@ const NavStyled = styled.nav`
         span{
             text-decoration: underline;
         }
-    }
-    @media (max-width: 1000px) {
-        // display: none;
     }
 `
 

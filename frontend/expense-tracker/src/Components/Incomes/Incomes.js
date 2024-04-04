@@ -4,6 +4,7 @@ import { InnerLayout } from '../../styles/layouts'
 import { useGlobalContext } from '../../Context/globalContext'
 import IncomeForm from '../Forms/IncomeForm'
 import Income from './Income'
+import MenuIcon from '../../utils/MenuIcon'
 
 const Incomes = () => {
 
@@ -16,6 +17,7 @@ const Incomes = () => {
   return (
     <IncomeStyled>
       <InnerLayout>
+        <MenuIcon />
         <h1>Incomes</h1>
         <h2 className='total-income'>Total Income: <span>${totalIncome()}</span></h2>
         <div className='income-content'>
