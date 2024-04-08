@@ -77,6 +77,7 @@ const Dashboard = () => {
 const DashboardStyled = styled.div`
   h1{
     text-align: center;
+    margin-bottom: 5vh;
   }
   .stats-con{
     display: grid;
@@ -84,8 +85,6 @@ const DashboardStyled = styled.div`
     gap: 2rem;
     .chart-con{
       grid-column: 1 / 4;
-      height: 50%;
-      width: 100%;
       .amount-con{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -126,7 +125,6 @@ const DashboardStyled = styled.div`
       grid-column: 4 / -1;
       h2{
         font-size: 2vw;
-        margin: 2vw 0 0 0;
         display: flex;
         align-items: center;
         justify-content: space-between;

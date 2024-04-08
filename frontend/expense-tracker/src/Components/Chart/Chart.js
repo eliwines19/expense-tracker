@@ -35,7 +35,8 @@ function Chart() {
                 display: true,
                 text: "Transaction History"
             }
-        }
+        },
+        maintainAspectRatio: false
     }
 
     const data = {
@@ -83,7 +84,10 @@ const ChartStyled = styled.div`
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     padding: 1rem;
     border-radius: 20px;
-    height: 100%;
+    canvas{
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 export default Chart
