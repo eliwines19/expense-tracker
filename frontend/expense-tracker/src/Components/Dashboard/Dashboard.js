@@ -78,21 +78,6 @@ const DashboardStyled = styled.div`
   h1{
     text-align: center;
   }
-  .nav-menu-btn{
-    width: 3vw;
-    i{
-      font-size: 25px;
-      padding: 1vw;
-      border-radius: 40%;
-      text-align: center;
-      transition: 0.2s ease-in-out;
-    }
-    i:hover{
-      font-size: 28px;
-      background-color: #F3C6CA;
-      cursor: pointer;
-    }
-  }
   .stats-con{
     display: grid;
     grid-template-columns: repeat(5, 1fr);

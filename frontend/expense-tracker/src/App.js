@@ -33,7 +33,7 @@ const App = () => {
     return(
         <AppStyled bg={bg} className="App">
             {orbMemo}
-            <MainLayout>
+            <MainLayout className='main-layout'>
                 <Navigation active={active} setActive={setActive} />
                 <main>
                     {displayComponents()}

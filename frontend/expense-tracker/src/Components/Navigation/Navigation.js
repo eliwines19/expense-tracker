@@ -31,7 +31,10 @@ const Navigation = ({ active, setActive }) => {
                     return (
                         <li
                             key={item.id}
-                            onClick={() => setActive(item.id)}
+                            onClick={() => {
+                                setActive(item.id)
+                                setActiveMenu(!activeMenu)
+                            }}
                             className={active === item.id ? 'active' : ''}
                         >
                             {item.icon}
