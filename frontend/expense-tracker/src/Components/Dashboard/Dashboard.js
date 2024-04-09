@@ -151,6 +151,40 @@ const DashboardStyled = styled.div`
       }
     }
   }
+  @media (max-width: 1000px){
+    .stats-con{
+      display: grid;
+      grid-template-columns: auto;
+      gap: 0;
+      .chart-con{
+        .amount-con{
+          .income, .expense, .balance{
+            font-size: 3vw;
+          }
+        }
+      }
+      .history-con{
+        grid-column: span 3;
+        text-align: center;
+        h2{
+          font-size: 4vw;
+        }
+        .salary-title{
+          margin: 2vw 0;
+          font-size: 3vw;
+          span{
+            font-size: 4vw;
+          }
+        }
+        .salary-item{
+          p{
+            font-weight: 600;
+            font-size: 3vw;
+          }
+        }
+      }
+    }
+  }
 `
 
 export default Dashboard
