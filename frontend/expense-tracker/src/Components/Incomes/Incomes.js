@@ -79,6 +79,11 @@ const IncomeStyled = styled.div`
       flex: 1;
     }
   }
+  @media (max-width: 600px){
+    .income-content{
+      display: grid;
+    }
+  }
 `
 
 export default Incomes

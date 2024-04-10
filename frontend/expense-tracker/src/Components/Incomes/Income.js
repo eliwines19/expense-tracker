@@ -150,6 +150,19 @@ const IncomeStyled = styled.div`
             }
         }
     }
+    @media (max-width: 1000px){
+        .icon{
+            display: none;
+        }
+        .content{
+            .inner-content{
+                .text{
+                    display: grid;
+                    gap: 0.5rem;
+                }
+            }
+        }
+    }
 `
 
 export default Income

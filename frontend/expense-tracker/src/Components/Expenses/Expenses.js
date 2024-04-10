@@ -80,6 +80,11 @@ const ExpensesStyled = styled.div`
       flex: 1;
     }
   }
+  @media (max-width: 600px){
+    .expense-content{
+      display: grid;
+    }
+  }
 `
 
 export default Expenses

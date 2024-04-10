@@ -38,13 +38,14 @@ const ExpenseForm = () => {
 
     return (
         <ExpenseFormStyled onSubmit={handleSubmit}>
+            <h2 className='new-expense-title'>Add New Expense</h2>
             {error && <p className='error'>{error}</p>}
             <div className='input-control'>
                 <input
                     type="text"
                     value={title}
                     name={'title'}
-                    placeholder='Expense Title'
+                    placeholder='What is this for?'
                     onChange={handleInput('title')}
                 />
             </div>
@@ -53,7 +54,7 @@ const ExpenseForm = () => {
                     value={amount}
                     type="text"
                     name={'amount'}
-                    placeholder={'Expense Amount'}
+                    placeholder={'How Much?'}
                     onChange={handleInput('amount')}
                 />
             </div>
@@ -70,7 +71,7 @@ const ExpenseForm = () => {
             </div>
             <div className='selects input-control'>
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value="" disabled >Select Option</option>
+                    <option value="" disabled >Select Expense Category</option>
                     <option value="education">Education</option>
                     <option value="groceries">Groceries</option>
                     <option value="health">Health</option>
@@ -137,6 +138,16 @@ const ExpenseFormStyled = styled.form`
             &:hover{
             background: var(--color-green) !important;
             }
+        }
+    }
+    @media (max-width: 600px){
+        gap: 1rem;
+        .new-expense-title{
+            text-align: center;
+        }
+        .submit-btn{
+            display: flex;
+            justify-content: center;
         }
     }
 `
