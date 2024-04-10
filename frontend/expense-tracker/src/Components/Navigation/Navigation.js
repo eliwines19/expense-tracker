@@ -55,9 +55,8 @@ const NavStyled = styled.nav`
     .nav-con{
         z-index: 10;
         position: absolute;
-        box-shadow: 0 0 0 2000px rgba(0,0,0,0.3);
         padding: 2rem 1.5rem;
-        width: 30vw;
+        width: 300px;
         height: auto;
         background: rgba(252, 246, 249, 0.78);
         border: 3px solid #FFFFFF;
@@ -91,9 +90,6 @@ const NavStyled = styled.nav`
         }
     }
     .close-menu{
-        left: 23vw;
-        width: 3vw;
-        position: absolute;
         i{
           font-size: 25px;
           padding: 1vw;
