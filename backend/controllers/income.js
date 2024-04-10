@@ -29,6 +29,8 @@ exports.addIncome = async (req, res) => {
 }
 
 exports.getIncomes = async (req, res) => {
+
+    console.log(req)
     
     try {
         const incomes = await IncomeSchema.find().sort({ date: 1 })
@@ -40,6 +42,8 @@ exports.getIncomes = async (req, res) => {
 }
 
 exports.deleteIncome = async (req, res) => {
+
+    console.log(req)
 
     const { id } = req.params;
     console.log(req.params)
