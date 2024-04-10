@@ -11,6 +11,8 @@ exports.addIncome = async (req, res) => {
         date
     })
 
+    console.log(req.body)
+
     try {
         // validations
         if(!title || !category || !description || !date){
