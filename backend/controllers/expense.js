@@ -24,8 +24,6 @@ exports.addExpense = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: "Server Error" })
     }
-
-    console.log(expense)
 }
 
 exports.getExpenses = async (req, res) => {
@@ -33,7 +31,7 @@ exports.getExpenses = async (req, res) => {
         const expenses = await ExpenseSchema.find().sort({ date: 1 })
         res.status(200).json(expenses)
     } catch (error) {
-        res.status(500).json({ message: "Server Error" })
+        res.status(500).json({ message: "Server Error", error: error })
     }
 
 }
@@ -43,7 +41,7 @@ exports.deleteExpense = async (req, res) => {
     const { id } = req.params;
     
     ExpenseSchema.findByIdAndDelete(id)
-        .then((expense) => {
+        .then(() => {
             res.status(200).json({ message: "Expense Deleted" })
         })
         .catch((error) => {
