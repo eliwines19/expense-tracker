@@ -10,6 +10,11 @@ const Expenses = () => {
 
   const { expenses, getExpenses, deleteExpense, totalExpenses } = useGlobalContext()
 
+  const sortExpenses = (expenses) => {
+    // default sorting will be newest on top
+    return expenses.slice().reverse()
+  }
+
   useEffect(() => {
     getExpenses()
   }, [])
@@ -25,7 +30,7 @@ const Expenses = () => {
             <ExpenseForm />
           </div>
           <div className='expenses'>
-            {expenses.map((expense) => {
+            {sortExpenses(expenses).map((expense) => {
               const { _id, title, amount, date, category, description, type } = expense
               return (
                 <Income

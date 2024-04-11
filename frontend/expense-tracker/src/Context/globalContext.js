@@ -21,7 +21,7 @@ export const GlobalProvider = ({children}) => {
         getIncomes()
     }
 
-    const getIncomes = async (incomes) => {
+    const getIncomes = async () => {
         const response = await axios.get(`${BASE_URL}/get-incomes`)
             .catch((error) => {
                 setError(error.response.data.message)
