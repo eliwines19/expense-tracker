@@ -9,7 +9,7 @@ import MenuIcon from '../../utils/MenuIcon'
 
 const Dashboard = () => {
 
-    const { getIncomes, getExpenses, totalExpenses, totalIncome, totalBalance, incomes, expenses, activeMenu, setActiveMenu } = useGlobalContext()
+    const { getIncomes, getExpenses, totalExpenses, totalIncome, totalBalance, incomes, expenses } = useGlobalContext()
 
     useEffect(() => {
       getExpenses()
