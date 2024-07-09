@@ -39,31 +39,49 @@ function Chart() {
         maintainAspectRatio: false
     }
 
+    const combinedDates = () => {
+        let combined = [];
+        incomes.map((inc) => {
+            const { date } = inc;
+            combined.push(dateFormat(date));
+        })
+        expenses.map((exp) => {
+            const { date } = exp;
+            combined.push(dateFormat(date));
+        })
+        combined = [...new Set(combined)];
+        combined.sort((a, b) => {
+            let dateA = new Date(a);
+            let dateB = new Date(b);
+            return dateA - dateB;
+        })
+        return combined;
+    }
+
+    let dates = combinedDates();
+
+    const incomeData = dates.map(date => {
+        const income = incomes.find(income => dateFormat(income.date) === date);
+        return income ? income.amount : null;
+    })
+
+    const expenseData = dates.map(date => {
+        const expense = expenses.find(expense => dateFormat(expense.date) === date);
+        return expense ? expense.amount : null;
+    })
+
     const data = {
-        labels: incomes.map((inc) =>{
-            const {date} = inc
-            return dateFormat(date)
-        }),
+        labels: dates,
         datasets: [
             {
                 label: 'Income',
-                data: [
-                    ...incomes.map((income) => {
-                        const {amount} = income
-                        return amount
-                    })
-                ],
+                data: incomeData,
                 backgroundColor: '#42AD00',
                 tension: .2
             },
             {
                 label: 'Expenses',
-                data: [
-                    ...expenses.map((expense) => {
-                        const {amount} = expense
-                        return amount
-                    })
-                ],
+                data: expenseData,
                 backgroundColor: '#FF0000',
                 tension: .2
             }
