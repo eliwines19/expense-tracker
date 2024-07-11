@@ -21,7 +21,7 @@ const Dashboard = () => {
           <InnerLayout>
               <div className='header-con'>
                 <MenuIcon />
-                <h1>All Transactions</h1>
+                <h1>Transactions</h1>
               </div>
               <div className='stats-con'>
                 <div className='chart-con'>

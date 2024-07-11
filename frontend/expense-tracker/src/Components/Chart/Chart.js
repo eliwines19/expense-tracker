@@ -61,14 +61,18 @@ function Chart() {
     let dates = combinedDates();
 
     const incomeData = dates.map(date => {
-        const income = incomes.find(income => dateFormat(income.date) === date);
-        return income ? income.amount : null;
-    })
+        const totalIncome = incomes
+            .filter(income => dateFormat(income.date) === date )
+            .reduce((sum, income) => sum + income.amount, 0)
+        return totalIncome || null;
+    });
 
     const expenseData = dates.map(date => {
-        const expense = expenses.find(expense => dateFormat(expense.date) === date);
-        return expense ? expense.amount : null;
-    })
+        const totalExpense = expenses
+            .filter(expense => dateFormat(expense.date) === date )
+            .reduce((sum, expense) => sum + expense.amount, 0)
+        return totalExpense || null;
+    });
 
     const data = {
         labels: dates,
@@ -87,7 +91,6 @@ function Chart() {
             }
         ]
     }
-
 
     return (
         <ChartStyled >
